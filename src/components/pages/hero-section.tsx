@@ -38,7 +38,7 @@ export function HeroSection() {
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <DownloadButton />
-            <Link href = "./demo">
+            <Link href ="/demo">
               <DemoButton />
             </Link>
         </div>
