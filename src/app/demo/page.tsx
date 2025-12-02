@@ -5,6 +5,8 @@ import type React from "react"
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import { ArrowRight, HandCoins, Sparkles, Users, TrendingUp, Heart } from "lucide-react"
+
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -53,34 +55,56 @@ function PhoneMockup({
 function LoginScreen() {
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <img src="/login.png" alt="tela de login" className="w-full h-full object-cover object-top" />
+      <Image
+        src="/login.png"
+        alt="tela de login"
+        fill
+        className="object-cover object-top"
+        priority
+      />
     </div>
   )
 }
 
-function RankingScreen(){
+function RankingScreen() {
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <img src="/ranking.png" alt="tela de ranking" className="w-full h-full object-cover object-top" />
+      <Image
+        src="/ranking.png"
+        alt="tela de ranking"
+        fill
+        className="object-cover object-top"
+      />
     </div>
   )
 }
 
-function CalendarScreen(){
+function CalendarScreen() {
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <img src="/calendar.png" alt="tela de ranking" className="w-full h-full object-cover object-top" />
+      <Image
+        src="/calendar.png"
+        alt="tela de calendário"
+        fill
+        className="object-cover object-top"
+      />
     </div>
   )
 }
 
-function DisciplinesScreen(){
+function DisciplinesScreen() {
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <img src="/disciplines.png" alt="tela de ranking" className="w-full h-full object-cover object-top" />
+      <Image
+        src="/disciplines.png"
+        alt="tela de disciplinas"
+        fill
+        className="object-cover object-top"
+      />
     </div>
   )
 }
+
 
 export default function DemoSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -280,8 +304,13 @@ export default function DemoSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 overflow-hidden shadow-xl">
-                  <img src="/eu.jpg" alt="estudante bom e novo" className="w-full h-full object-cover" />
+                <div className="w-full h-full rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 overflow-hidden shadow-xl relative">
+                  <Image
+                    src="/eu.jpg"
+                    alt="estudante bom e novo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </motion.div>
 
@@ -293,8 +322,13 @@ export default function DemoSection() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-white/10 overflow-hidden shadow-2xl">
-                  <img src="/eu.jpg" alt="estudante bom e novo" className="w-full h-full object-cover" />
+                <div className="w-full h-full rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-white/10 overflow-hidden shadow-2xl relative">
+                  <Image
+                    src="/eu.jpg"
+                    alt="estudante bom e novo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </motion.div>
 
@@ -306,8 +340,13 @@ export default function DemoSection() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-green-500/20 to-teal-500/20 border border-white/10 overflow-hidden shadow-xl">
-                  <img src="/eu.jpg" alt="estudante bom e novo" className="w-full h-full object-cover" />
+                <div className="w-full h-full rounded-xl bg-gradient-to-br from-green-500/20 to-teal-500/20 border border-white/10 overflow-hidden shadow-xl relative">
+                  <Image
+                    src="/eu.jpg"
+                    alt="estudante bom e novo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </motion.div>
 
