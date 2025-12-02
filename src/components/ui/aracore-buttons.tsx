@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { Smartphone, ArrowRight, Apple, Play } from "lucide-react"
+import { Apple, Play } from "lucide-react"
 
 // popover
 import {
@@ -29,7 +29,7 @@ export function AracoreButton({ children, variant = "primary", onClick, classNam
     "cursor-pointer group flex items-center gap-3 font-medium rounded-xl transition-all duration-200 backdrop-blur-sm"
 
   const variants = {
-    primary: "bg-white/95 hover:bg-white text-black px-6 py-3.5 shadow-lg hover:shadow-xl border border-gray-200/20",
+    primary: "bg-gradient-to-r from-indigo-500 to-blue-700 hover:bg-indigo-500/50 hover:brightness-120 text-white px-6 py-3.5 shadow-lg hover:shadow-xl hover:scale-105 border border-blue-600/30",
     secondary:
       "bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70",
     promotional:
@@ -40,15 +40,6 @@ export function AracoreButton({ children, variant = "primary", onClick, classNam
     <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick}>
       {children}
     </button>
-  )
-}
-
-export function AndroidButton() {
-  return (
-    <AracoreButton variant="primary">
-      <Smartphone className="h-5 w-5" />
-      <span>Download para Android</span>
-    </AracoreButton>
   )
 }
 
@@ -70,23 +61,11 @@ export function DemoButton(){
   )
 }
 
-export function PromotionalButton() {
-  return (
-    <AracoreButton variant="promotional">
-      <span className="text-gray-300">Apresentando nossa</span>
-      <span className="text-white font-semibold">Plataforma Web</span>
-      <span className="text-gray-400">|</span>
-      <span className="text-blue-400 font-medium">Acesse agora</span>
-      <ArrowRight className="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
-    </AracoreButton>
-  )
-}
-
 export function SupportButton() {
   return (
     <PopoverRoot>
-      <PopoverTrigger className="flex items-center gap-2 z-50 bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70 rounded-xl backdrop-blur-sm transition-all duration-200 flex items-center gap-2">
-      <span className="text-lg">Suporte</span>
+      <PopoverTrigger className="hover:scale-110 cursor-pointer flex items-center gap-2 z-50 bg-gray-700 hover:bg-gray-800 text-white px-6 py-3.5 border-gray-600 hover:border-gray-500 rounded-xl backdrop-blur-sm transition-all duration-200 shadow-lg">
+      <span className="text-lg text-white hover:text-white/80">Suporte</span>
       </PopoverTrigger>
 
       <PopoverContent className = 'z-50 mx-auto max-w-md' >

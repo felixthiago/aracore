@@ -1,6 +1,6 @@
 "use client"
 
-import { Menu, Smartphone, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -24,10 +24,12 @@ export default function Navbar() {
   }
 
   return (
+
+    // desktop navbar
     <div className="w-full p-4 md:p-6 relative z-50">
-      <header className="w-full bg-black/95 backdrop-blur-md border border-gray-800/50 shadow-lg shadow-blue-600/20 rounded-2xl relative">
+      <header className="w-full bg-black/95 backdrop-blur-md border border-gray-800/50 shadow-lg shadow-blue-700/20 rounded-2xl relative">
         <div className="flex h-16 items-center justify-between px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
-          {/* Logo - Always on the left */}
+          
           <div className="flex items-center">
             <Link
               href="/"
@@ -39,7 +41,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered */}
           <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
             {navigationLinks.map((link) => (
               <Link
@@ -48,19 +49,13 @@ export default function Navbar() {
                 className="text-gray-300 hover:text-white transition-all duration-200 ease-out text-sm font-medium px-3 py-2 rounded-lg hover:bg-gray-800/50 cursor-pointer relative group"
               >
                 {link.name}
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-600 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
               </Link>
             ))}
           </nav>
 
-          {/* Right side actions */}
+          {/* mobile navbar */}
           <div className="flex items-center gap-4">
-            <Button className="hidden sm:flex cursor-pointer bg-white text-black hover:bg-gray-100 hover:scale-105 text-sm font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200/20">
-              <Smartphone className="h-4 w-4 mr-2" />
-              Download
-            </Button>
-
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
@@ -113,17 +108,6 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-
-            {/* Mobile Download Button */}
-            <div className="pt-4 border-t border-gray-800/50 mt-4">
-              <Button
-                className="w-full bg-white text-black hover:bg-gray-100 justify-center rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 py-3"
-                onClick={handleLinkClick}
-              >
-                <Smartphone className="h-4 w-4 mr-2" />
-                Download
-              </Button>
-            </div>
           </nav>
         </div>
 

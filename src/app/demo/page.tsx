@@ -21,7 +21,7 @@ function PhoneMockup({
   className?: string
   rotation?: number
   scale?: number
-}) {
+}) {  
 
   return (
     <div

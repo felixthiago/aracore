@@ -1,15 +1,15 @@
 "use client"
-
+import React from "react"
 import { useState, Suspense } from "react"
 import { ChevronDown, ChevronUp, Sparkles, Zap, Shield, Users } from "lucide-react"
 import { SupportButton} from "../ui/aracore-buttons"
 
 // particulinhas
 
-
 import Particles, { ParticleLoader } from "@/components/animations/particles";
 
-export default function FAQSection() {
+export default function FAQ() {
+
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
@@ -45,15 +45,13 @@ export default function FAQSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-      {/* particulinhas do fundo */}
-      <Suspense fallback={<ParticleLoader />}>
-        <Particles />
-      </Suspense>
-
+    <Suspense fallback={<ParticleLoader />}>
+      <Particles />
+    </Suspense>
       <div className="relative z-10 px-4 max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-purple-800 via-blue-800 to-cyan-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">
               FAQ
             </span>
           </h2>
@@ -73,7 +71,7 @@ export default function FAQSection() {
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-all duration-200"
+                className="w-full p-6 text-left flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
                   {item.icon && (
@@ -119,3 +117,14 @@ export default function FAQSection() {
     </section>
   )
 }
+
+// export default function FAQ(){
+//   return(
+//     <div className="relative min-h-screen bg-black overflow-hidden">
+//       <Suspense fallback={<ParticleLoader />}>
+//         <Particles />
+//       </Suspense>
+//       <FAQSection />
+//     </div>
+//   )
+// }

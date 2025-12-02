@@ -3,14 +3,14 @@
 import { NumberTicker } from "../magicui/number-ticker"
 import { Target, Users, Zap, Smile, Shield, ListCheck, Scale} from "lucide-react"
 
-import Particles, { ParticleLoader } from "@/components/animations/particles";
-import { Suspense } from "react";
+// import Particles, { ParticleLoader } from "@/components/animations/particles";
+// import { Suspense } from "react";
 
 export default function AboutSection() {
   const stats = [
-    { number: "24K+", label: "Estudantes Ativos", icon: <Users className="h-6 w-6 text-[#3d3d3d]" /> },
-    { number: "420+", label: "Instituições Parceiras", icon: <Shield className="h-6 w-6 text-[#3d3d3d]" /> },
-    { number: "80%", label: "Taxa de Satisfação", icon: <Smile className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "4.000", label: "Estudantes Ativos", icon: <Users className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "38", label: "Instituições Parceiras", icon: <Shield className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "762", label: "Alunos Aprovados", icon: <Smile className="h-6 w-6 text-[#3d3d3d]" /> },
     { number: "+2000", label: "Questões de Vestibulares", icon: <ListCheck className="h-6 w-6 text-[#3d3d3d]" /> },
   ]
   const values = [
@@ -21,7 +21,7 @@ export default function AboutSection() {
         "Democratizar o acesso à educação de qualidade através da tecnologia, tornando o aprendizado mais eficiente e personalizado para cada estudante brasileiro.",
     },
     {
-      icon: <Scale className="h-8 w-8 text-[#3d3d3d]" />,
+      icon: <Scale className="h-8 w-8 text-[#b3b3b3]" />,
       title: "Valores",
       description:
         "Acreditamos na educação como ferramenta de transformação social. Priorizamos a inovação, transparência e o impacto positivo na vida dos estudantes.",
@@ -36,23 +36,21 @@ export default function AboutSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-    <Suspense fallback={<ParticleLoader />}>
+    {/* <Suspense fallback={<ParticleLoader />}>
         < Particles/>
-    </Suspense>
+    </Suspense> */}
 
       <div className="relative z-10 px-2 max-w-7xl mx-auto">
-        <div className="text-center mb-5">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Sobre Nós
-            </span>
-            
-          </h2>
-        </div>
-
         <div className="text-center mb-20">
           <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10 max-w-5xl mx-auto">
-            <p className="text-xl text-gray-200 leading-relaxed mb-8">
+            <div className="text-center mb-5">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <span className="bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">
+                Sobre Nós
+              </span>
+            </h2>
+        </div>
+            <p className="text-lg text-gray-200 leading-relaxed mb-2">
               Somos um time de pequenas araras apaixonadas por tecnologia e educação, trabalhando incansavelmente para transformar a forma
               como os brasileiros aprendem e ensinam, queremos acelerar o desenvolvimento da educação brasileira através de soluções tecnológicas inovadoras
               Ajudamos a entregar valor dos investimentos em educação mais rapidamente, fornecendo uma solução completa
@@ -66,10 +64,10 @@ export default function AboutSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500 transition-all duration-300"
+              className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-gray-500 transition-all duration-300 hover:scale-105"
             >
               <div className="flex justify-center mb-4">
-                <div className="p-3 rounded-full bg-gray-700">{stat.icon}</div>
+                <div className="p-3 rounded-full bg-gray-400">{stat.icon}</div>
               </div>
               <div className="text-3xl font-bold mb-2">
                 <NumberTicker
@@ -87,12 +85,12 @@ export default function AboutSection() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500 transition-all duration-300 hover:scale-105"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-900 transition-all duration-300 hover:scale-105"
             >
               <div className="flex justify-center mb-6">
-                <div className="p-4 rounded-2xl bg-gray-900">{value.icon}</div>
+                <div className="p-4 rounded-2xl bg-gray-400/20">{value.icon}</div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 text-center">{value.title}</h3>
+              <h3 className="text-2xl font-extrabold text-white mb-4 text-center">{value.title}</h3>
               <p className="text-gray-300 leading-relaxed text-center">{value.description}</p>
             </div>
           ))}

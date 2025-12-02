@@ -5,27 +5,8 @@ import Link from "next/link"
 import Image from "next/image"
 
 
-import Particles from "@/components/animations/particles";
+import Particles, { ParticleLoader } from "@/components/animations/particles";
 import { Suspense } from "react";
-
-function FooterParticleLoader() {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center opacity-30">
-      <div className="flex space-x-1">
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={i}
-            className="w-1 h-1 rounded-full animate-pulse"
-            style={{
-              backgroundColor: `hsl(${260 + i * 30}, 60%, 60%)`,
-              animationDelay: `${i * 0.3}s`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export default function Footer() {
   const productLinks = [
@@ -56,7 +37,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-black border-t border-white/10 overflow-hidden">
       {/* particulinhas */}
-      <Suspense fallback={<FooterParticleLoader />}>
+      <Suspense fallback={<ParticleLoader />}>
         <Particles />
       </Suspense>
 
@@ -151,16 +132,16 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-indigo-800/50">
+              <div className="p-2 rounded-lg bg-indigo-400/40">
                 <Mail className="h-4 w-4 text-white" />
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Email</p>
-                <p className="text-white text-sm">buggedplanet@shitposting.agency</p>
+                <p className="text-white text-sm">thiagooliveira5427@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-indigo-800/50">
+              <div className="p-2 rounded-lg bg-indigo-400/40">
                 <Phone className="h-4 w-4 text-white" />
               </div>
               <div>

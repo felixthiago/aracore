@@ -16,7 +16,6 @@ const BG_PARTICLE_COUNT = 800
 const BG_X_LIMIT = 15
 const BG_Y_LIMIT = 6
 
-// Exportamos o loader separadamente para ser usado com React.Suspense
 export function ParticleLoader(){
   return (
     <div className="absolute inset-0 flex items-center justify-center opacity-30">
@@ -194,24 +193,27 @@ function BackgroundParticles() {
           array={bgData.positions}
           itemSize={3}
         />
+
         <bufferAttribute
           attach="attributes-color"
           count={bgData.count}
           array={bgData.colors}
           itemSize={3}
         />
+
         <bufferAttribute
           attach="attributes-size"
           count={bgData.count}
           array={bgData.sizes}
           itemSize={1}
         />
+
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
         vertexColors
         transparent
-        opacity={0.3}
+        opacity={0.9}
         sizeAttenuation
         blending={AdditiveBlending}
       />
@@ -219,12 +221,13 @@ function BackgroundParticles() {
   )
 }
 
+
 export default function Particles() {
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas
         key="particles-canvas"
-        camera={{ position: [0, 0, 8], fov: 70 }}
+        camera={{ position: [0, 0, 8], fov: 90 }}
         gl={{
           antialias: false,
           alpha: true,
@@ -233,7 +236,8 @@ export default function Particles() {
         style={{ background: "transparent" }} 
         dpr={[1, 2]}
       >
-        <ambientLight intensity={0.9} />
+
+        <ambientLight intensity={1} />
         <Flowing />
         <BackgroundParticles />
       </Canvas>

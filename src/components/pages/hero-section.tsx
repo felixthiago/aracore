@@ -22,7 +22,7 @@ export function HeroSection() {
     <span className="block text-white">
       Democratizando
       </span>
-          <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-600 to-blue-400 bg-clip-text text-transparent">
             A Educação de qualidade
           </span>
           <span className="block text-white">No Brasil.</span>

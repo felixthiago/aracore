@@ -15,15 +15,15 @@ export default function PricingSection() {
       price: "Gratuito",  
       period: "",
       description: "Perfeito para começar sua jornada educacional",
-      icon: <Star className="h-6 w-6 " />,
+      icon: <Star className="h-6 w-6 text-[#ffe600d2]" />,
       features: [
-        "Acesso a 100 Questões de vestibulares",
+        "Acesso +2.000 Questões de Concursos",
         "1 simulado por mês",
         "Suporte por email",
         "Progresso individual",
-        "Correção de redação somente por I.A",
+        "Correção de redação apenas por I.A",
       ],
-      limitations: ["Acesso limitado a simulados", "1 Redação por mês", "Sem mentoria personalizada"],
+      limitations: ["Simulados limitados", "Redações ilimitadas", "Mentoria personalizada"],
       buttonText: "Comece agora!",
       buttonVariant: "secondary" as const,
       popular: false,
@@ -32,10 +32,11 @@ export default function PricingSection() {
       name: "Extensivo",
       price: "R$ 49.90",
       period: "/mês",
-      description: "Para quem realmente quer se preparar para o vestibular",
+      description: "Para quem realmente quer se preparar para concursos",
       icon: <Gem className="h-6 w-6 text-[#b9f2ff]" />,
       features: [
-        "Acesso ilimitado a todos as questões",
+        "Tudo do plano comum",
+        "Acesso ilimitado a todas as questões",
         "Simulados ilimitados",
         "Professores a seu dispor 24/7",
         "Correção de redação com feedback personalizado por professores de gramática",
@@ -43,7 +44,7 @@ export default function PricingSection() {
         "Suporte direto na plataforma"
       ],
       limitations: [],
-      buttonText: "Assinar Agora ( 7 dias gratuitos )",
+      buttonText: "Assinar Agora!",
       buttonVariant: "primary" as const,
       popular: true,
     },
@@ -55,7 +56,6 @@ export default function PricingSection() {
       icon: <Crown className="h-6 w-6 text-[#ffea00]" />,
       features: [
         "Tudo do plano Extensivo",
-        "Dashboard administrativo",
         "Relatórios personalizados",
         "Mentoria individual",
         "Planejamento de estudos personalizado",
@@ -72,46 +72,44 @@ export default function PricingSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-      {/* particulinhas */}
       <Suspense fallback={<ParticleLoader />}>
         <FooterParticleScene />
       </Suspense>
 
       <div className="relative z-10 px-4 max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-blue-400 bg-clip-text text-transparent">
               Planos
             </span>
             <span className="block text-white">Educacionais</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Escolha o plano ideal para acelerar seu aprendizado e alcançar seus objetivos educacionais
+            Escolha o plano ideal para acelerar seu aprendizado e alcançar seus objetivos
           </p>
         </div>
 
-        {/* Pricing Cards */}
+        {/* cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {pricingTiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border transition-all duration-300 hover:bg-white/10 hover:scale-105 ${
+              className={`relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border transition-all duration-300 hover:bg-gray-800/20 hover:scale-105 ${
                 tier.popular
-                  ? "border-blue-500/50 shadow-2xl shadow-blue-500/20 lg:scale-105"
+                  ? "border-indigo-700/50 shadow-2xl shadow-blue-500/20 lg:scale-105"
                   : "border-white/10 hover:border-white/20"
               }`}
             >
               {/* mais comprado */}
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  <div className="bg-gradient-to-r from-indigo-700 to-blue-400 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
                     Mais Comprado!
                   </div>
                 </div>
               )}
 
-              {/* Plan Header */}
+              {/* header */}
               <div className="text-center mb-8">
                 <div className="flex justify-center mb-4">
                   <div
@@ -130,7 +128,7 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              {/* Features List */}
+              {/* beneficios */}
               <div className="mb-8">
                 <ul className="space-y-3">
                   {tier.features.map((feature, featureIndex) => (
@@ -148,9 +146,9 @@ export default function PricingSection() {
                 </ul>
               </div>
 
-              {/* CTA Button */}
+              {/* call to action plano mais comprado */}
               <div className="text-center">
-                <AracoreButton variant={tier.buttonVariant} className="w-full justify-center">
+                <AracoreButton variant={tier.buttonVariant} className="w-full justify-center ">
                   {tier.buttonText}
                 </AracoreButton>
               </div>
@@ -158,7 +156,6 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Additional Info */}
         <div className="text-center">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">Garantia de 30 dias</h3>
