@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { Smartphone, ArrowRight, Apple, Play, Megaphone } from "lucide-react"
+import { Smartphone, ArrowRight, Apple, Play } from "lucide-react"
 
 // popover
 import {
@@ -16,7 +16,6 @@ import {
   PopoverSubmitButton,
 } from "@/components/ui/popover";
 import { toast } from "sonner"
-import { link } from "fs";
 
 interface AracoreButtonProps {
   children: React.ReactNode

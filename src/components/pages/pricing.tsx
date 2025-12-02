@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, X, Star, Zap, Crown, Gem } from "lucide-react"
+import { Check, X, Star, Crown, Gem } from "lucide-react"
 import { AracoreButton } from "../ui/aracore-buttons"
 
 // particulinhas
