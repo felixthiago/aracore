@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, X, Star, Zap, Crown } from "lucide-react"
+import { Check, X, Star, Zap, Crown, Gem } from "lucide-react"
 import { AracoreButton } from "../ui/aracore-buttons"
 
 // particulinhas
@@ -15,7 +15,7 @@ export default function PricingSection() {
       price: "Gratuito",  
       period: "",
       description: "Perfeito para começar sua jornada educacional",
-      icon: <Star className="h-6 w-6" />,
+      icon: <Star className="h-6 w-6 " />,
       features: [
         "Acesso a 100 Questões de vestibulares",
         "1 simulado por mês",
@@ -24,16 +24,16 @@ export default function PricingSection() {
         "Correção de redação somente por I.A",
       ],
       limitations: ["Acesso limitado a simulados", "1 Redação por mês", "Sem mentoria personalizada"],
-      buttonText: "7 dias gratuitos!",
+      buttonText: "Comece agora!",
       buttonVariant: "secondary" as const,
       popular: false,
     },
     {
       name: "Extensivo",
-      price: "R$ 49",
+      price: "R$ 49.90",
       period: "/mês",
       description: "Para quem realmente quer se preparar para o vestibular",
-      icon: <Zap className="h-6 w-6" />,
+      icon: <Gem className="h-6 w-6 text-[#b9f2ff]" />,
       features: [
         "Acesso ilimitado a todos as questões",
         "Simulados ilimitados",
@@ -43,16 +43,16 @@ export default function PricingSection() {
         "Suporte direto na plataforma"
       ],
       limitations: [],
-      buttonText: "Assinar Agora",
+      buttonText: "Assinar Agora ( 7 dias gratuitos )",
       buttonVariant: "primary" as const,
       popular: true,
     },
     {
       name: "Extensivo Plus",
-      price: "R$ 1.000.000",
+      price: "R$ 79.90",
       period: "/mês",
       description: "Solução completa para equipes e organizações",
-      icon: <Crown className="h-6 w-6" />,
+      icon: <Crown className="h-6 w-6 text-[#ffea00]" />,
       features: [
         "Tudo do plano Extensivo",
         "Dashboard administrativo",
@@ -116,7 +116,7 @@ export default function PricingSection() {
                 <div className="flex justify-center mb-4">
                   <div
                     className={`p-3 rounded-2xl ${
-                      tier.popular ? "bg-gradient-to-r from-blue-500 to-purple-500" : "bg-gray-800"
+                      tier.popular ? "bg-gray-700" : "bg-gray-900"
                     }`}
                   >
                     {tier.icon}

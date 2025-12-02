@@ -1,34 +1,33 @@
 "use client"
 
-import { Heart, Target, Users, Zap, Award, Globe } from "lucide-react"
-import FooterParticleScene from "../animations/particles"
-import ParticleLoader from "../animations/particles"
 import { NumberTicker } from "../magicui/number-ticker"
+import { Target, Users, Zap, Smile, Shield, ListCheck, Scale} from "lucide-react"
 
-import { Suspense } from "react"
+import Particles, { ParticleLoader } from "@/components/animations/particles";
+import { Suspense } from "react";
 
 export default function AboutSection() {
   const stats = [
-    { number: "24K+", label: "Estudantes Ativos", icon: <Users className="h-6 w-6" /> },
-    { number: "420+", label: "Instituições Parceiras", icon: <Globe className="h-6 w-6" /> },
-    { number: "69%", label: "Taxa de Satisfação", icon: <Award className="h-6 w-6" /> },
-    { number: "+2000", label: "Questões de Vestibulares", icon: <Zap className="h-6 w-6" /> },
+    { number: "24K+", label: "Estudantes Ativos", icon: <Users className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "420+", label: "Instituições Parceiras", icon: <Shield className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "80%", label: "Taxa de Satisfação", icon: <Smile className="h-6 w-6 text-[#3d3d3d]" /> },
+    { number: "+2000", label: "Questões de Vestibulares", icon: <ListCheck className="h-6 w-6 text-[#3d3d3d]" /> },
   ]
   const values = [
     {
-      icon: <Target className="h-8 w-8" />,
+      icon: <Target className="h-8 w-8 text-[#FF0000]" />,
       title: "Missão",
       description:
         "Democratizar o acesso à educação de qualidade através da tecnologia, tornando o aprendizado mais eficiente e personalizado para cada estudante brasileiro.",
     },
     {
-      icon: <Heart className="h-8 w-8" />,
+      icon: <Scale className="h-8 w-8 text-[#3d3d3d]" />,
       title: "Valores",
       description:
         "Acreditamos na educação como ferramenta de transformação social. Priorizamos a inovação, transparência e o impacto positivo na vida dos estudantes.",
     },
     {
-      icon: <Zap className="h-8 w-8" />,
+      icon: <Zap className="h-8 w-8 text-[#ffea00]" />,
       title: "Visão",
       description:
         "Ser a principal plataforma educacional do Brasil, conectando milhões de estudantes a oportunidades de aprendizado personalizadas e de alta qualidade.",
@@ -38,7 +37,7 @@ export default function AboutSection() {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
     <Suspense fallback={<ParticleLoader />}>
-        <FooterParticleScene />
+        < Particles/>
     </Suspense>
 
       <div className="relative z-10 px-2 max-w-7xl mx-auto">
@@ -51,7 +50,6 @@ export default function AboutSection() {
           </h2>
         </div>
 
-        {/* missao */}
         <div className="text-center mb-20">
           <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10 max-w-5xl mx-auto">
             <p className="text-xl text-gray-200 leading-relaxed mb-8">
@@ -71,7 +69,7 @@ export default function AboutSection() {
               className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500 transition-all duration-300"
             >
               <div className="flex justify-center mb-4">
-                <div className="p-3 rounded-full bg-gradient-to-r from-purple-800 via-blue-800 to-cyan-800">{stat.icon}</div>
+                <div className="p-3 rounded-full bg-gray-700">{stat.icon}</div>
               </div>
               <div className="text-3xl font-bold mb-2">
                 <NumberTicker
@@ -92,7 +90,7 @@ export default function AboutSection() {
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500 transition-all duration-300 hover:scale-105"
             >
               <div className="flex justify-center mb-6">
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-800/50 via-blue-800/50 to-cyan-800/50">{value.icon}</div>
+                <div className="p-4 rounded-2xl bg-gray-900">{value.icon}</div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 text-center">{value.title}</h3>
               <p className="text-gray-300 leading-relaxed text-center">{value.description}</p>

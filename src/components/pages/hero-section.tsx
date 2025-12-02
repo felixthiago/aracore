@@ -1,19 +1,19 @@
 "use client"
+import Link from "next/link"
 
 import { Heart } from "lucide-react"
 import { DownloadButton, DemoButton } from "../ui/aracore-buttons"
 
 // particulinhas
 
-import FooterParticleScene from "../animations/particles"
-import ParticleLoader from "../animations/particles"
-import { Suspense } from "react"
+import Particles, { ParticleLoader } from "@/components/animations/particles";
+import { Suspense } from "react";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
     <Suspense fallback={<ParticleLoader />}>
-        <FooterParticleScene />
+        <Particles />
     </Suspense>
 
   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/20 pointer-events-none"></div>
@@ -38,7 +38,9 @@ export function HeroSection() {
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <DownloadButton />
-            <DemoButton />
+            <Link href = "./demo">
+              <DemoButton />
+            </Link>
         </div>
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-purple-900/5 via-transparent to-transparent pointer-events-none"></div>

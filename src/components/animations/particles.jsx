@@ -1,10 +1,23 @@
+// components/animations/particles.jsx
+
 "use client"
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef, useMemo } from "react"
 import { Color, AdditiveBlending } from "three"
 
-function ParticleLoader(){
+// --- CONSTANTES ---
+const FLOWING_PARTICLE_COUNT = 1200
+const FLOWING_X_LIMIT = 10
+const FLOWING_Y_LIMIT = 4
+const FLOWING_Z_LIMIT = 5
+
+const BG_PARTICLE_COUNT = 800
+const BG_X_LIMIT = 15
+const BG_Y_LIMIT = 6
+
+// Exportamos o loader separadamente para ser usado com React.Suspense
+export function ParticleLoader(){
   return (
     <div className="absolute inset-0 flex items-center justify-center opacity-30">
       <div className="flex space-x-1">
@@ -27,7 +40,7 @@ function Flowing() {
   const particlesRef = useRef(null)
 
   const particleData = useMemo(() => {
-    const count = 1200
+    const count = FLOWING_PARTICLE_COUNT
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
     const sizes = new Float32Array(count)
@@ -38,15 +51,10 @@ function Flowing() {
       positions[i * 3 + 1] = (Math.random() - 0.5) * 8
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10
 
-      const colorVariant = Math.floor(Math.random() * 6)
+      // Simplificando e melhorando a variação de cores (tons roxos/rosas/azuis)
       const color = new Color()
-
-      if (colorVariant === 0) color.setHSL(0.75, 0.6, 0.5)
-      else if (colorVariant === 1) color.setHSL(0.85, 0.7, 0.6)
-      else if (colorVariant === 2) color.setHSL(0.55, 0.8, 0.6)
-      else if (colorVariant === 3) color.setHSL(0.15, 0.7, 0.5)
-      else if (colorVariant === 4) color.setHSL(0.3, 0.6, 0.4)
-      else color.setHSL(0.65, 0.5, 0.7)
+      const hue = [0.75, 0.85, 0.55, 0.65][Math.floor(Math.random() * 4)]
+      color.setHSL(hue, 0.6 + Math.random() * 0.2, 0.5 + Math.random() * 0.2)
 
       colors[i * 3] = color.r
       colors[i * 3 + 1] = color.g
@@ -72,18 +80,21 @@ function Flowing() {
     for (let i = 0; i < particleData.count; i++) {
       const i3 = i * 3
 
+      // Movimentação
       positions[i3] += particleData.velocities[i3]
       positions[i3 + 1] += particleData.velocities[i3 + 1] + Math.sin(time * 0.3 + i * 0.01) * 0.002
       positions[i3 + 2] += particleData.velocities[i3 + 2]
 
+      // Pulsação de tamanho
       sizes[i] = particleData.sizes[i] * (1 + Math.sin(time * 1.5 + i * 0.15) * 0.2)
 
-      if (positions[i3] > 10) positions[i3] = -10
-      if (positions[i3] < -10) positions[i3] = 10
-      if (positions[i3 + 1] > 4) positions[i3 + 1] = -4
-      if (positions[i3 + 1] < -4) positions[i3 + 1] = 4
-      if (positions[i3 + 2] > 5) positions[i3 + 2] = -5
-      if (positions[i3 + 2] < -5) positions[i3 + 2] = 5
+      // Reposicionamento (envolver a cena)
+      if (positions[i3] > FLOWING_X_LIMIT) positions[i3] = -FLOWING_X_LIMIT
+      if (positions[i3] < -FLOWING_X_LIMIT) positions[i3] = FLOWING_X_LIMIT
+      if (positions[i3 + 1] > FLOWING_Y_LIMIT) positions[i3 + 1] = -FLOWING_Y_LIMIT
+      if (positions[i3 + 1] < -FLOWING_Y_LIMIT) positions[i3 + 1] = FLOWING_Y_LIMIT
+      if (positions[i3 + 2] > FLOWING_Z_LIMIT) positions[i3 + 2] = -FLOWING_Z_LIMIT
+      if (positions[i3 + 2] < -FLOWING_Z_LIMIT) positions[i3 + 2] = FLOWING_Z_LIMIT
     }
 
     particlesRef.current.geometry.attributes.position.needsUpdate = true
@@ -128,7 +139,7 @@ function BackgroundParticles() {
   const bgRef = useRef(null)
 
   const bgData = useMemo(() => {
-    const count = 800
+    const count = BG_PARTICLE_COUNT
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
     const sizes = new Float32Array(count)
@@ -139,7 +150,8 @@ function BackgroundParticles() {
       positions[i * 3 + 2] = (Math.random() - 0.5) * 15
 
       const color = new Color()
-      color.setHSL(0.7 + Math.random() * 0.2, 0.3, 0.2)
+      // Cores de fundo mais escuras e sutis (tons azul/roxo escuro)
+      color.setHSL(0.7 + Math.random() * 0.2, 0.3, 0.2) 
       colors[i * 3] = color.r
       colors[i * 3 + 1] = color.g
       colors[i * 3 + 2] = color.b
@@ -159,13 +171,15 @@ function BackgroundParticles() {
     for (let i = 0; i < bgData.count; i++) {
       const i3 = i * 3
 
+      // Movimento lento
       positions[i3] += Math.sin(time * 0.02 + i) * 0.0005
       positions[i3 + 1] += Math.cos(time * 0.015 + i) * 0.0003
 
-      if (positions[i3] > 15) positions[i3] = -15
-      if (positions[i3] < -15) positions[i3] = 15
-      if (positions[i3 + 1] > 6) positions[i3 + 1] = -6
-      if (positions[i3 + 1] < -6) positions[i3 + 1] = 6
+      // Reposicionamento
+      if (positions[i3] > BG_X_LIMIT) positions[i3] = -BG_X_LIMIT
+      if (positions[i3] < -BG_X_LIMIT) positions[i3] = BG_X_LIMIT
+      if (positions[i3 + 1] > BG_Y_LIMIT) positions[i3 + 1] = -BG_Y_LIMIT
+      if (positions[i3 + 1] < -BG_Y_LIMIT) positions[i3 + 1] = BG_Y_LIMIT
     }
 
     bgRef.current.geometry.attributes.position.needsUpdate = true
@@ -209,14 +223,15 @@ export default function Particles() {
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas
+        key="particles-canvas"
         camera={{ position: [0, 0, 8], fov: 70 }}
         gl={{
           antialias: false,
           alpha: true,
           powerPreference: "high-performance",
         }}
-        style={{ background: "transparent" }}
-        dpr={[1, 1.5]}
+        style={{ background: "transparent" }} 
+        dpr={[1, 2]}
       >
         <ambientLight intensity={0.9} />
         <Flowing />

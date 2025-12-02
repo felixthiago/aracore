@@ -3,10 +3,11 @@
 import { Heart, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { Suspense } from "react"
-import FooterParticleScene from "../animations/particles"
 
-// Loading component for footer particles
+
+import Particles from "@/components/animations/particles";
+import { Suspense } from "react";
+
 function FooterParticleLoader() {
   return (
     <div className="absolute inset-0 flex items-center justify-center opacity-30">
@@ -56,7 +57,7 @@ export default function Footer() {
     <footer className="relative bg-black border-t border-white/10 overflow-hidden">
       {/* particulinhas */}
       <Suspense fallback={<FooterParticleLoader />}>
-        <FooterParticleScene />
+        <Particles />
       </Suspense>
 
       <div className="relative z-10 px-4 py-16 max-w-7xl mx-auto">
@@ -150,8 +151,8 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-gradient-to-r from-indigo-800/50 via-purple-800/50 to-violet-800/50">
-                <Mail className="h-4 w-4" />
+              <div className="p-2 rounded-lg bg-indigo-800/50">
+                <Mail className="h-4 w-4 text-white" />
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Email</p>
@@ -159,8 +160,8 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-gradient-to-r from-indigo-800/50 via-purple-800/50 to-violet-800/50">
-                <Phone className="h-4 w-4" />
+              <div className="p-2 rounded-lg bg-indigo-800/50">
+                <Phone className="h-4 w-4 text-white" />
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Telefone</p>

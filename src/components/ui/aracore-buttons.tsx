@@ -16,6 +16,7 @@ import {
   PopoverSubmitButton,
 } from "@/components/ui/popover";
 import { toast } from "sonner"
+import { link } from "fs";
 
 interface AracoreButtonProps {
   children: React.ReactNode
@@ -55,18 +56,18 @@ export function AndroidButton() {
 export function DownloadButton() {
   return (
     <AracoreButton variant="secondary">
-        <Apple className ="h-5 w-5"></Apple>
-      <span>Download Android ou IOS</span>
+        <Apple className ="h-5 w-5 text-[#FF0000]"></Apple>
+        <span>Download Android ou IOS</span>
     </AracoreButton>
   )
 }
 
 export function DemoButton(){
   return (
-    <AracoreButton variant = "secondary">
-      <span className="text-white font-semibold">Demonstração</span>
-      <Play className = "h-5 w-5 group-hover:translate-x-1 backdrop-blur-sm transition-all duration-300 hover:scale-105 group bg-transparent"/>
-    </AracoreButton>
+      <AracoreButton variant = "secondary">
+        <span className="text-white font-semibold">Demonstração</span>
+        <Play className = "h-5 w-5 group-hover:translate-x-1 backdrop-blur-sm transition-all duration-300 hover:scale-105 group bg-transparent text-green-300"/>
+      </AracoreButton>
   )
 }
 
@@ -82,59 +83,14 @@ export function PromotionalButton() {
   )
 }
 
-// export function SupportButton(){
-//   return (
-//       <PopoverRoot>
-//         <PopoverTrigger>
-//           <div className="flex items-center gap-2 bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70">
-//             <span>Suporte</span>
-//             <Megaphone className="h-4 w-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
-//           </div>
-//         </PopoverTrigger>
-
-//         <PopoverContent className = "w-[300px] h-[200px] z-50 bg-black shadow-lg">
-//           <PopoverForm
-//             onSubmit={(note) => {
-//               toast.promise(
-//                 new Promise((resolve, reject) => {
-//                   setTimeout(() => {
-//                     if (note && note.length > 0) {
-//                       resolve(note)
-//                     } else {
-//                       reject("Mensagem vazia")
-//                     }
-//                   }, 1000)
-//                 }),
-//                 {
-//                   loading: "Enviando...",
-//                   success: (note) => `Enviado com sucesso: ${note}`,
-//                   error: (err) => `Erro: ${err}`,
-//                 }
-//               )
-//             }}
-//           >
-//             <PopoverLabel>Deixe seu feedback</PopoverLabel>
-//             <PopoverTextarea/>
-//             <PopoverFooter>
-//               <PopoverCloseButton />
-//               <PopoverSubmitButton>Enviar</PopoverSubmitButton>
-//             </PopoverFooter>
-//           </PopoverForm>
-//         </PopoverContent>
-//       </PopoverRoot>
-//   )
-// }
-
-
 export function SupportButton() {
   return (
     <PopoverRoot>
-      <PopoverTrigger className="z-50 bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70 rounded-xl backdrop-blur-sm transition-all duration-200 flex items-center gap-2">
-        <span>Suporte</span>
-        <Megaphone className="h-4 w-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+      <PopoverTrigger className="flex items-center gap-2 z-50 bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70 rounded-xl backdrop-blur-sm transition-all duration-200 flex items-center gap-2">
+      <span className="text-lg">Suporte</span>
       </PopoverTrigger>
 
-      <PopoverContent className = 'z-50'>
+      <PopoverContent className = 'z-50 mx-auto max-w-md' >
         <PopoverForm
           onSubmit={(note) => {
             toast.promise(
@@ -155,14 +111,15 @@ export function SupportButton() {
             )
           }}
         >
+
           <div className="p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Deixe seu feedback</h3>
-            <p className="text-gray-400 text-sm mb-4">Nossa equipe está pronta para ajudar você!</p>
+            <h3 className="text-lg font-semibold text-white mb-2">Deixe sua dúvida</h3>
             <div className="relative min-h-[120px]">
               <PopoverLabel>Digite sua mensagem...</PopoverLabel>
               <PopoverTextarea className="min-h-[120px]" />
             </div>
           </div>
+
           <PopoverFooter>
             <PopoverCloseButton />
             <PopoverSubmitButton>Enviar</PopoverSubmitButton>

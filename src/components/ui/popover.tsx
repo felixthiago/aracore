@@ -160,9 +160,9 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(({ 
               className,
             )}
             style={{
-              top: "50%",
+              bottom: "10%",
               left: "50%",
-              transform: "translate(-50%, -50%)",
+              transform: "translateX(-50%)",
             }}
             initial={{ opacity: 0, scale: 0.9, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -239,7 +239,7 @@ const PopoverTextarea = React.forwardRef<HTMLTextAreaElement, PopoverTextareaPro
       className={cn(
         "h-full w-full resize-none rounded-md bg-transparent px-4 py-3 text-sm outline-none",
         "placeholder:text-gray-500 text-white",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
@@ -312,7 +312,7 @@ const PopoverSubmitButton = React.forwardRef<HTMLButtonElement, PopoverSubmitBut
         variant={variant}
         size="sm"
         className={cn(
-          "bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600",
+          "bg-indigo-500/40 hover:bg-indigo-500/70 cursor-pointer",
           "text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200",
           className,
         )}

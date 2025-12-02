@@ -6,8 +6,8 @@ import { SupportButton} from "../ui/aracore-buttons"
 
 // particulinhas
 
-import FooterParticleScene from "../animations/particles"
-import ParticleLoader from "../animations/particles"
+
+import Particles, { ParticleLoader } from "@/components/animations/particles";
 
 export default function FAQSection() {
   const [openItems, setOpenItems] = useState<number[]>([])
@@ -18,25 +18,25 @@ export default function FAQSection() {
 
   const faqData = [
     {
-      icon: <Sparkles className="h-6 w-6" />,
+      icon: <Sparkles className="h-6 w-6 text-[#ffea00]" />,
       question: "Como funciona a plataforma educacional?",
       answer:
         "Nossa plataforma utiliza inteligência artificial para personalizar o aprendizado de cada estudante. Analisamos o desempenho individual e criamos trilhas de estudo adaptadas às necessidades específicas de cada usuário, garantindo máxima eficiência no aprendizado.",
     },
     {
-      icon: <Users className="h-6 w-6" />,
+      icon: <Users className="h-6 w-6 text-[#b9f2ff]" />,
       question: "Quantos estudantes posso cadastrar na minha instituição?",
       answer:
         "Oferecemos planos flexíveis para instituições de todos os tamanhos. Desde escolas pequenas com 50 alunos até universidades com milhares de estudantes. Nosso plano empresarial suporta usuários ilimitados com recursos avançados de gestão.",
     },
     {
-      icon: <Shield className="h-6 w-6" />,
+      icon: <Shield className="h-6 w-6 text-[#b9f2ff]" />,
       question: "Os dados dos estudantes estão seguros?",
       answer:
         "Sim! Utilizamos criptografia de ponta a ponta e seguimos rigorosamente a LGPD. Todos os dados são armazenados em servidores seguros no Brasil, com backup automático e monitoramento 24/7. A privacidade dos estudantes é nossa prioridade máxima.",
     },
     {
-      icon: <Zap className="h-6 w-6" />,
+      icon: <Zap className="h-6 w-6 text-[#ffea00]" />,
       question: "Posso integrar com outros sistemas educacionais?",
       answer:
         "Absolutamente! Nossa API permite integração com os principais sistemas de gestão educacional do mercado. Suportamos integração com Google Classroom, Moodle, Canvas e muitos outros. Nossa equipe técnica oferece suporte completo na implementação.",
@@ -47,7 +47,7 @@ export default function FAQSection() {
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
       {/* particulinhas do fundo */}
       <Suspense fallback={<ParticleLoader />}>
-        <FooterParticleScene />
+        <Particles />
       </Suspense>
 
       <div className="relative z-10 px-4 max-w-4xl mx-auto">
@@ -66,7 +66,7 @@ export default function FAQSection() {
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="bg-black/40 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 overflow-hidden hover:bg-black/50"
+              className="bg-black/40 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-indigo-400/50 transition-all duration-300 overflow-hidden hover:bg-black/50"
               style={{
                 boxShadow: "0 8px 32px rgba(139, 92, 246, 0.1)",
               }}
@@ -77,7 +77,7 @@ export default function FAQSection() {
               >
                 <div className="flex items-center gap-4">
                   {item.icon && (
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-800/50 via-purple-800/50 to-violet-800/50 shadow-lg">
+                    <div className="p-3 rounded-xl bg-indigo-900 shadow-lg">
                       {item.icon}
                     </div>
                   )}
@@ -104,13 +104,13 @@ export default function FAQSection() {
         </div>
 
         {/* contato suporte */}
-        <div className="text-center mt-16 ">
+        <div className="text-center mt-12 ">
           <div className="bg-gray-900/40 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-2xl">
             <h3 className="text-2xl font-bold text-white mb-4">Ainda tem dúvidas?</h3>
             <p className="text-gray-300 mb-6">
               Nossa equipe está pronta para ajudar você a transformar a educação!
             </p>
-            <div className="flex justify-center items-center mt-4 mb-50">
+            <div className="flex justify-center items-center mt-4 mb-1">
                 <SupportButton />
               </div>    
           </div>
