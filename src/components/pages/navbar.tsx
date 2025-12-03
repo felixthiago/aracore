@@ -53,7 +53,7 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-
+          
           {/* mobile navbar */}
           <div className="flex items-center gap-4">
             <Button

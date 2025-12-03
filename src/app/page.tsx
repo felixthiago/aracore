@@ -5,9 +5,10 @@ import PricingSection from "@/components/pages/pricing";
 import AboutSection from "@/components/pages/about";
 import FAQ from "@/components/pages/faq";
 import Footer from "@/components/pages/footer";
-
+ 
 export default function Home(){
   return (
+    <>
     <div className="relative min-h-screen bg-black">
       <div className="relative z-10"> 
         <div className="navbar-container"><Navbar /> </div>
@@ -18,5 +19,6 @@ export default function Home(){
         <div id ="footer"><Footer /></div>
       </div>
     </div>
+    </>
   )
 }

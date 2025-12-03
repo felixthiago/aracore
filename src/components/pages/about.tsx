@@ -3,8 +3,7 @@
 import { NumberTicker } from "../magicui/number-ticker"
 import { Target, Users, Zap, Smile, Shield, ListCheck, Scale} from "lucide-react"
 
-// import Particles, { ParticleLoader } from "@/components/animations/particles";
-// import { Suspense } from "react";
+import Particles from "@/components/animations/particles";
 
 export default function AboutSection() {
   const stats = [
@@ -36,10 +35,7 @@ export default function AboutSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-    {/* <Suspense fallback={<ParticleLoader />}>
-        < Particles/>
-    </Suspense> */}
-
+      <Particles />
       <div className="relative z-10 px-2 max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10 max-w-5xl mx-auto">

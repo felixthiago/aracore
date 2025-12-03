@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Macawdemy",
-  description: "Feito com amor selvagem por araras",
+  description: "Feito com amor de araras para araras",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className = {inter.className}>
+    <html lang="en" className = {`${inter.className} dark`}>
       <body
         className={`${inter.className} antialiased`}
       >

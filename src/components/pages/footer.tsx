@@ -4,10 +4,6 @@ import { Heart, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide
 import Link from "next/link"
 import Image from "next/image"
 
-
-import Particles, { ParticleLoader } from "@/components/animations/particles";
-import { Suspense } from "react";
-
 export default function Footer() {
   const productLinks = [
     { name: "App Mobile", href: "#" },
@@ -37,9 +33,9 @@ export default function Footer() {
   return (
     <footer className="relative bg-black border-t border-white/10 overflow-hidden">
       {/* particulinhas */}
-      <Suspense fallback={<ParticleLoader />}>
+      {/* <Suspense fallback={<ParticleLoader />}>
         <Particles />
-      </Suspense>
+      </Suspense> */}
 
       <div className="relative z-10 px-4 py-16 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -191,6 +187,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </footer>    
   )
 }

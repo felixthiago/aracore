@@ -231,3 +231,7 @@ html {
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}

@@ -3,10 +3,7 @@
 import { Check, X, Star, Crown, Gem } from "lucide-react"
 import { AracoreButton } from "../ui/aracore-buttons"
 
-// particulinhas
-import FooterParticleScene from "../animations/particles"
-import ParticleLoader from "../animations/particles"
-import { Suspense } from "react"
+import Particles from "@/components/animations/particles";
 
 export default function PricingSection() {
   const pricingTiers = [
@@ -72,10 +69,7 @@ export default function PricingSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-      <Suspense fallback={<ParticleLoader />}>
-        <FooterParticleScene />
-      </Suspense>
-
+      <Particles />
       <div className="relative z-10 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">

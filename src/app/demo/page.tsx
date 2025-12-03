@@ -1,14 +1,16 @@
 "use client"
 
 import type React from "react"
-
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
-import { ArrowRight, HandCoins, Sparkles, Users, TrendingUp, Heart } from "lucide-react"
+import { ArrowRight, HandCoins, Sparkles } from "lucide-react"
 
 import Image from "next/image"
 import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
+import { Iphone } from "@/components/ui/iphone"
+import { Terminal, TypingAnimation, AnimatedSpan} from "@/components/ui/terminal"
 
 // template celular
 function PhoneMockup({
@@ -31,7 +33,7 @@ function PhoneMockup({
       }}
     >
 
-      <div className="relative w-[290px] h-[600px] bg-white rounded-[3.5rem] p-[3px] shadow-2xl shadow-[#ffea00]">
+      <div className="relative w-[290px] h-[600px] bg-gray-800 rounded-[3.5rem] p-[3px] ">
 
         <div className="relative w-full h-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 rounded-[3.3rem] p-2">
 
@@ -47,21 +49,6 @@ function PhoneMockup({
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
         </div>
       </div>
-    </div>
-  )
-}
-
-// imagens dos celularees
-function LoginScreen() {
-  return (
-    <div className="w-full h-full relative overflow-hidden">
-      <Image
-        src="/login.png"
-        alt="tela de login"
-        fill
-        className="object-cover object-top"
-        priority
-      />
     </div>
   )
 }
@@ -149,10 +136,10 @@ export default function DemoSection() {
 
         {/* particulas */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(200)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-purple-500/30 rounded-full"
+              className="fixed w-1.5 h-1 bg-indigo-500/30 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -171,6 +158,7 @@ export default function DemoSection() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 text-blue-400 text-sm mb-6">
               <Sparkles className="w-4 h-4 text-[#ffea00]" />
@@ -186,7 +174,7 @@ export default function DemoSection() {
           >
             Conheça {" "}
             <span className="bg-gradient-to-r from-cyan-300 to-blue-900 bg-clip-text text-transparent">
-              Aracore.
+              Macawdemy.
             </span>
           </motion.h1>
 
@@ -261,21 +249,6 @@ export default function DemoSection() {
               </PhoneMockup>
             </motion.div>
           </div>
-
-          {/* badges das imagens */}
-          {/* <motion.div
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-4 flex-wrap justify-center px-4"
-            style={{ opacity: useTransform(smoothProgress, [0.25, 0.4], [0, 1]) }}
-          >
-            {["Estudos Personalizados", "Gamificação", "Banco de questões"].map((feature, i) => (
-              <span
-                key={feature}
-                className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-gray-300 text-sm backdrop-blur-sm"
-              >
-                {feature}
-              </span>
-            ))}
-          </motion.div> */}
         </div>
       </section>
 
@@ -388,29 +361,21 @@ export default function DemoSection() {
             </div>
 
             {/* dados tirados do cu para dar impressão de segurança */}
-            <div className="space-y-6">
-              {[
-                { icon: <Users className="w-6 h-6" />, value: "24K+", label: "Estudantes ativos na plataforma" },
-                { icon: <TrendingUp className="w-6 h-6" />, value: "420+", label: "Instituições parceiras" },
-                { icon: <Heart className="w-6 h-6" />, value: "69%", label: "Taxa de satisfação dos usuários" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-500/20 to-blue-500/30 text-indigo-400">
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <p className="text-white text-2xl font-bold">{stat.value}</p>
-                    <p className="text-gray-400 text-sm">{stat.label}</p>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="flex justify-center items-center w-full h-full">
+              <Terminal
+                className="w-full max-w-4xl h-[600px] rounded-2xl border border-white/10 bg-black/70 backdrop-blur-sm text-white font-mono text-lg font-extrabold shadow-2xl"
+                sequence
+                startOnView
+              >
+                <TypingAnimation delay = {0} >$ npm install macawdemy</TypingAnimation>
+                <AnimatedSpan delay = {800} className = "text-blue-500"> ℹ Instalando Macawdemy...</AnimatedSpan>
+                <AnimatedSpan className = "text-green-500">  ✔ 24K+ estudantes ativos aprimorando seus estudos</AnimatedSpan>
+                <AnimatedSpan className = "text-green-500">  ✔ 420+ instituições parceiras confiando na plataforma</AnimatedSpan>
+                <AnimatedSpan className = "text-green-500">  ✔ Aprendizado gamificado e personalizado</AnimatedSpan>
+                <AnimatedSpan className = "text-green-500">  ✔ Banco de + 2.000 questões e desafios práticos</AnimatedSpan>
+
+                <TypingAnimation >$ macawdemy start</TypingAnimation>
+              </Terminal>
             </div>
           </div>
         </motion.div>
@@ -428,9 +393,9 @@ export default function DemoSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <PhoneMockup>
-              <LoginScreen />
-            </PhoneMockup>
+            <div className="relative w-[300px] aspect-[433/882] overflow-hidden rounded-xl shadow-lg">
+              <Iphone src="/login.png" className="w-full h-full" />
+            </div>
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">

@@ -1,12 +1,12 @@
 "use client"
 import React from "react"
-import { useState, Suspense } from "react"
+import { useState } from "react"
 import { ChevronDown, ChevronUp, Sparkles, Zap, Shield, Users } from "lucide-react"
 import { SupportButton} from "../ui/aracore-buttons"
 
 // particulinhas
 
-import Particles, { ParticleLoader } from "@/components/animations/particles";
+import Particles from "@/components/animations/particles";
 
 export default function FAQ() {
 
@@ -45,9 +45,7 @@ export default function FAQ() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden py-20">
-    <Suspense fallback={<ParticleLoader />}>
-      <Particles />
-    </Suspense>
+    <Particles />
       <div className="relative z-10 px-4 max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
