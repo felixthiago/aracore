@@ -1,9 +1,8 @@
 "use client"
 
 import type React from "react"
-import { Apple, Play } from "lucide-react"
+import { Apple, Play} from "lucide-react"
 
-// popover
 import {
   PopoverRoot,
   PopoverTrigger,
@@ -15,11 +14,12 @@ import {
   PopoverCloseButton,
   PopoverSubmitButton,
 } from "@/components/ui/popover";
+
 import { toast } from "sonner"
 
 interface AracoreButtonProps {
   children: React.ReactNode
-  variant?: "primary" | "secondary" | "promotional"
+  variant?: "primary" | "secondary" | "promotional" | "upgrade"
   onClick?: () => void
   className?: string
 }
@@ -34,6 +34,8 @@ export function AracoreButton({ children, variant = "primary", onClick, classNam
       "bg-gray-900/80 hover:bg-gray-800/90 text-white px-6 py-3.5 border border-gray-700/50 hover:border-gray-600/70",
     promotional:
       "bg-gray-950/90 hover:bg-gray-900/95 text-white px-8 py-4 rounded-2xl border border-gray-800/50 hover:border-gray-700/70 shadow-2xl",
+    upgrade:
+      "bg-transparent bg-gradient-to-r from-amber-600 via-amber-600/60 to-amber-600 [background-size:200%_auto] text-white hover:bg-transparent hover:bg-[99%_center] focus-visible:ring-amber-600/20 dark:from-amber-400 dark:via-amber-400/60 dark:to-amber-400 dark:focus-visible:ring-amber-400/40"
   }
 
   return (

@@ -5,6 +5,8 @@ import { AracoreButton } from "../ui/aracore-buttons"
 
 import Particles from "@/components/animations/particles";
 
+import ButtonUpgradeDemo from "../shadcn-studio/button/button-12";
+
 export default function PricingSection() {
   const pricingTiers = [
     {
@@ -141,7 +143,9 @@ export default function PricingSection() {
               </div>
 
               {/* call to action plano mais comprado */}
-              <div className="text-center">
+              <div className="text-center w-full justify-cecnter">
+                  {/* <ButtonUpgradeDemo />{tier.buttonText} */}
+
                 <AracoreButton variant={tier.buttonVariant} className="w-full justify-center ">
                   {tier.buttonText}
                 </AracoreButton>

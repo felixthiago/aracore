@@ -111,7 +111,7 @@ export default function DemoSection() {
   })
 
   const phoneY = useTransform(smoothProgress, [0, 0.3], [100, 0])
-  const phoneOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1])
+  const phoneOpacity = useTransform(smoothProgress, [0, 0.05], [0, 1])
   const phoneScale = useTransform(smoothProgress, [0, 0.3], [0.8, 1])
   const phoneRotate = useTransform(smoothProgress, [0, 0.3], [10, 0])
 
@@ -122,7 +122,7 @@ export default function DemoSection() {
   const phone3Y = useTransform(smoothProgress, [0.35, 0.6], [150, 0])
   const phone3Opacity = useTransform(smoothProgress, [0.35, 0.5], [0, 1])
 
-  const statsOpacity = useTransform(smoothProgress, [0.5, 0.65], [0, 1])
+  const statsOpacity = useTransform(smoothProgress, [0.5, 0.50], [0, 1])
   const statsY = useTransform(smoothProgress, [0.5, 0.65], [100, 0])
 
   const finalOpacity = useTransform(smoothProgress, [0.75, 0.9], [0, 1])

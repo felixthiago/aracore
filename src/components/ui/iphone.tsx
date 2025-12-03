@@ -77,7 +77,7 @@ export function Iphone({
           <img
             src={src}
             alt=""
-            className="block size-full object-cover object-top"
+            className="block w-full h-full object-cover rounded-lg"
           />
         </div>
       )}
