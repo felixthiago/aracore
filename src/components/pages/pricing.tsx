@@ -5,8 +5,6 @@ import { AracoreButton } from "../ui/aracore-buttons"
 
 import Particles from "@/components/animations/particles";
 
-import ButtonUpgradeDemo from "../shadcn-studio/button/button-12";
-
 export default function PricingSection() {
   const pricingTiers = [
     {

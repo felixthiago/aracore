@@ -1,4 +1,6 @@
 import type { HTMLAttributes } from "react"
+import Image from "next/image"
+
 
 const PHONE_WIDTH = 433
 const PHONE_HEIGHT = 882
@@ -74,11 +76,19 @@ export function Iphone({
             borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
           }}
         >
-          <img
+
+          <Image
+            src={src}
+            alt="iphone-mockup"
+            width={300}
+            height={882}
+            className="block w-full h-full object-cover rounded-lg"
+          />
+          {/* <img
             src={src}
             alt=""
             className="block w-full h-full object-cover rounded-lg"
-          />
+          /> */}
         </div>
       )}
 
