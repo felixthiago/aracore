@@ -12,6 +12,9 @@ import { Button } from "@/components/ui/button"
 import { Iphone } from "@/components/ui/iphone"
 import { Terminal, TypingAnimation, AnimatedSpan} from "@/components/ui/terminal"
 
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
+
+
 // template celular
 function PhoneMockup({
   children,
@@ -128,6 +131,11 @@ export default function DemoSection() {
   const finalOpacity = useTransform(smoothProgress, [0.75, 0.9], [0, 1])
   const finalScale = useTransform(smoothProgress, [0.75, 0.9], [0.9, 1])
 
+  const particles = Array.from({ length: 200 }, () => ({
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  }))
+
   return (
     <div ref={containerRef} className="relative bg-black">
 
@@ -136,13 +144,13 @@ export default function DemoSection() {
 
         {/* particulas */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(200)].map((_, i) => (
+          {particles.map((pos, i) => (
             <motion.div
               key={i}
               className="fixed w-1.5 h-1 bg-indigo-500/30 rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: pos.left,
+                top: pos.top,
               }}
               animate={{
                 y: [0, -30, 0],
@@ -156,6 +164,7 @@ export default function DemoSection() {
             />
           ))}
         </div>
+
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
 
@@ -423,7 +432,7 @@ export default function DemoSection() {
                 <HandCoins className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-
+{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/M0WlVpuQgbU?si=0AcNgx;bEFKfqbNd6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <Link href="/">
               <Button
                 variant="outline"
@@ -433,6 +442,23 @@ export default function DemoSection() {
               </Button>
             </Link>
           </motion.div>
+          <br></br>
+          <div className="relative">
+            <HeroVideoDialog
+              className="block dark:hidden"
+              animationStyle="top-in-bottom-out"
+              videoSrc="https://www.youtube.com/embed/M0WlVpuQgbU?si=0AcNgxbEFKfqbNd6"
+              thumbnailSrc="https://www.whitescreen.online/image/black-background.png"
+              thumbnailAlt="TCC APRESENTACAO"
+            />
+            <HeroVideoDialog
+              className="hidden dark:block"
+              animationStyle="top-in-bottom-out"
+              videoSrc="https://www.youtube.com/embed/M0WlVpuQgbU?si=0AcNgxbEFKfqbNd6"
+              thumbnailSrc="https://www.whitescreen.online/image/black-background.png"
+              thumbnailAlt="TCC APRESENTACAO"
+            />
+          </div>
 
           <motion.div
             className="mt-16"
